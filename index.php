@@ -46,7 +46,7 @@ $task_list = [
     function countTasks ($task_list, $project) {
         $amount = 0;
         foreach($task_list as $task) {
-            if ($task['category'] == $project) {
+            if ($task['category'] === $project) {
                 $amount++;
             }
          }
