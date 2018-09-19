@@ -49,7 +49,7 @@ $task_list = [
     $page_content = include_template (
         'index.php',
         [
-            'projects' => $projects,
+            'show_complete_tasks' => $show_complete_tasks,
             'task_list' => $task_list
         ]
     );
@@ -57,6 +57,8 @@ $task_list = [
     $layout_content = include_template (
         'layout.php',
         [
+            'task_list' => $task_list,
+            'projects' => $projects,
             'page_content' => $page_content,
             'title' => 'Дела в порядке'
         ]
