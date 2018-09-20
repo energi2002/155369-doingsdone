@@ -34,7 +34,7 @@
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1"
                                        <?php if ($task['completed']): ?>checked<?php endif; ?>>
-                                <span class="checkbox__text"><?=$task['title']; ?></span>
+                                <span class="checkbox__text"><?=esc($task['title']); ?></span>
                             </label>
                         </td>
                         <td class="task__file">
@@ -44,18 +44,4 @@
                     </tr>
                     <?php endforeach; ?>
 
-
-                    <?php if (1 === $show_complete_tasks): ?>
-                      <tr class="tasks__item task task--completed">
-                        <td class="task__select">
-                          <label class="checkbox task__checkbox">
-                            <input class="checkbox__input visually-hidden" type="checkbox" checked>
-                            <span class="checkbox__text">Записаться на интенсив "Базовый PHP"</span>
-                          </label>
-                        </td>
-                        <td class="task__date">10.10.2018</td>
-                        <td class="task__controls">
-                        </td>
-                      </tr>
-                  <?php endif; ?>
                 </table>

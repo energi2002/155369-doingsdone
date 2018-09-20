@@ -44,6 +44,7 @@ $task_list = [
         'category' => 'Домашние дела',
         'completed' => false
     ]
+
 ];
 
     $page_content = include_template (
@@ -60,11 +61,13 @@ $task_list = [
             'task_list' => $task_list,
             'projects' => $projects,
             'page_content' => $page_content,
-            'title' => 'Дела в порядке'
+            'title' => 'Дела в порядке',
+            'user_name' => 'Константин'
         ]
     );
 
     print ($layout_content);
+
 
 ?>
 

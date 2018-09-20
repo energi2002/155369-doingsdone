@@ -17,6 +17,7 @@ function include_template($name, $data) {
 return $result;
 }
 
+
 function countTasks($task_list, $project) {
      $amount = 0;
       foreach($task_list as $task) {
@@ -25,6 +26,13 @@ function countTasks($task_list, $project) {
            }
       }
           return $amount;
+}
+
+
+function esc($str) {
+	$title = strip_tags($str);
+
+	return $title;
 }
 
 ?>
