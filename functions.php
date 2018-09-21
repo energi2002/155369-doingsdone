@@ -21,7 +21,7 @@ return $result;
 // функция подсчета задач в определённом проекте
 function countTasks($task_list, $project) {
      $amount = 0;
-      foreach($task_list as $task) {
+     foreach($task_list as $task) {
           if ($task['category'] === $project) {
                $amount++;
            }
@@ -37,17 +37,20 @@ function esc($str) {
 }
 
 // функция проверки кол-ва дней до истечения срока задачи
-function checkDeadline($task) {
-                $cur_day_ts = time();
-                $deadline_ts = strtotime($task["date"]);
-                $days_until_deadline = floor(($deadline_ts - $cur_ts) / 86400);
+function getImportantTaskClass($task)
+{
+    if ($task["date"] === null) {
+        return '';
+    }
 
-           if ($task["date"] === "Нет" or $days_until_deadline > 1) {
-			 return ""; }
+    $cur_day_ts = time();
+    $deadline_ts = strtotime($task["date"]);
+    $days_until_deadline = floor(($deadline_ts - $cur_day_ts) / 86400);
 
-            else {
-             return "task--important";
-                 }
-		       }
-
+    if ($days_until_deadline === 0 || (!$task['completed'] && $days_until_deadline < 0)) {
+		return "task--important";
+    } else {
+         return '';
+    }
+}
 ?>
