@@ -38,13 +38,16 @@ function esc($str) {
 
 // функция проверки кол-ва дней до истечения срока задачи
 function checkDeadline($task) {
-        $cur_day_ts = time();
-        $deadline_ts = strtotime($task['date']);
-        $hours_until_deadline = floor(($deadline_ts - $cur_ts) / 86400);
-            if ($hours_until_deadline <= 1) {
-                return "task--important";
-            }
-        }
+                $cur_day_ts = time();
+                $deadline_ts = strtotime($task["date"]);
+                $days_until_deadline = floor(($deadline_ts - $cur_ts) / 86400);
 
+           if ($task["date"] === "Нет" or $days_until_deadline > 1) {
+			 return ""; }
+
+            else {
+             return "task--important";
+                 }
+		       }
 
 ?>

@@ -29,7 +29,7 @@
                     <tr class="tasks__item task
                     <?php if ($task['completed']): ?>
                         task--completed
-                    <?php elseif (checkDeadline($task)): ?>
+                      <?php elseif (checkDeadline($task)): ?>
                          task--important
                     <?php endif; ?> ">
                                            <td class="task__select">
