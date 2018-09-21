@@ -1,16 +1,20 @@
 <?php
 
+// подключение файла functions.php
 require_once ('functions.php');
 
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
 
+
+//массив по списку проектов
 $projects = ['Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто'];
 
+//массив по списку задач
 $task_list = [
     [
         'title' => 'Собеседование в IT компании',
-        'date' => '01.12.2018',
+        'date' => '20.09.2018',
         'category' => 'Работа',
         'completed' => false
     ],
@@ -47,6 +51,7 @@ $task_list = [
 
 ];
 
+// подключение контента главной страницы
     $page_content = include_template (
         'index.php',
         [
@@ -55,6 +60,7 @@ $task_list = [
         ]
     );
 
+// подключение страницы-лейаут
     $layout_content = include_template (
         'layout.php',
         [

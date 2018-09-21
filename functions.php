@@ -1,5 +1,6 @@
 <?php
 
+// функция подключения шаблонов
 function include_template($name, $data) {
     $name = 'templates/' . $name;
     $result = '';
@@ -17,7 +18,7 @@ function include_template($name, $data) {
 return $result;
 }
 
-
+// функция подсчета задач в определённом проекте
 function countTasks($task_list, $project) {
      $amount = 0;
       foreach($task_list as $task) {
@@ -28,11 +29,22 @@ function countTasks($task_list, $project) {
           return $amount;
 }
 
-
+// функция фильтрации вносимых данных от пользователя
 function esc($str) {
 	$title = strip_tags($str);
 
 	return $title;
 }
+
+// функция проверки кол-ва дней до истечения срока задачи
+function checkDeadline($task) {
+        $cur_day_ts = time();
+        $deadline_ts = strtotime($task['date']);
+        $hours_until_deadline = floor(($deadline_ts - $cur_ts) / 86400);
+            if ($hours_until_deadline <= 1) {
+                return "task--important";
+            }
+        }
+
 
 ?>

@@ -29,8 +29,10 @@
                     <tr class="tasks__item task
                     <?php if ($task['completed']): ?>
                         task--completed
+                    <?php elseif (checkDeadline($task)): ?>
+                         task--important
                     <?php endif; ?> ">
-                        <td class="task__select">
+                                           <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1"
                                        <?php if ($task['completed']): ?>checked<?php endif; ?>>
