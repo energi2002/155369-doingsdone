@@ -25,12 +25,13 @@
                 </div>
 
                 <table class="tasks">
+
                 <?php foreach ($task_list as $task): ?>
+                    <?php if(!$task['completed'] || 1 === $show_complete_tasks): ?>
                     <tr class="tasks__item task
-                    <?php if ($task['completed']): ?>
-                        task--completed
-                    <?php endif; ?> ">
-                        <td class="task__select">
+                        <?=$task['completed'] ? 'task--completed' : '' ?>
+                        <?=getImportantTaskClass($task); ?>">
+                                           <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1"
                                        <?php if ($task['completed']): ?>checked<?php endif; ?>>
@@ -42,6 +43,7 @@
                         </td>
                         <td class="task__date"><?=$task['date']; ?></td>
                     </tr>
+                    <?php endif; ?>
                     <?php endforeach; ?>
 
                 </table>
