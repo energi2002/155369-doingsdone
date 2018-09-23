@@ -1,37 +1,37 @@
-CREATE DATABASE doingsdone
+CREATE DATABASE 155369-doingsdone
 DEFAULT CHARACTER SET utf8
 DEFAULT COLLATE utf8_general_ci;
 
-USE doingsdone;
+USE 155369-doingsdone;
 
 CREATE TABLE project (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  project_name CHAR(50),
-  user_id INT
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  name CHAR(50) NOT NULL,
+  user_id INT NOT NULL
 );
 
 CREATE TABLE task (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  task_name CHAR(100),
-  date_created DATETIME,
-  date_completed DATETIME,
-  date_deadline DATETIME,
-  date_status INT,
-  file CHAR(100),
-  project_id INT,
-  user_id
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  name CHAR(100) NOT NULL,
+  date_created DATE NOT NULL,
+  date_completed DATE NOT NULL,
+  date_deadline DATE NOT NULL,
+  status INT DEFAULT 0,
+  file CHAR(100) NOT NULL,
+  project_id INT NOT NULL,
+  user_id INT NOT NULL
 );
 
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  reg_date DATETIME,
-  email CHAR (50),
-  user_name CHAR (50),
-  user_password CHAR (50),
-  user_contacts CHAR (200)
+CREATE TABLE user (
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  reg_date DATE DEFAULT 0,
+  email CHAR (50) NOT NULL,
+  name CHAR (50) NOT NULL,
+  password CHAR (50) NOT NULL,
+  contacts CHAR (200) DEFAULT 0
 );
 
-CREATE UNIQUE INDEX user_name ON users(user_name);
-CREATE UNIQUE INDEX user_email ON users(email);
-CREATE INDEX project ON project(project_name, user_id);
-CREATE INDEX task ON task(task_name, user_id);
+CREATE UNIQUE INDEX user_name ON user(name);
+CREATE UNIQUE INDEX user_email ON user(email);
+CREATE INDEX project ON project(name, user_id);
+CREATE INDEX task ON task(name, user_id);
