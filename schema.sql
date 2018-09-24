@@ -15,10 +15,10 @@ CREATE TABLE task (
   name CHAR(100) NOT NULL,
   date_created DATE NOT NULL,
   date_completed DATE NOT NULL,
-  date_deadline DATE NOT NULL,
+  date_deadline DATE DEFAULT 0,
   status INT DEFAULT 0,
-  file CHAR(100) NOT NULL,
-  project_id INT NOT NULL,
+  file CHAR(100) DEFAULT 0,
+  project_id INT DEFAULT 0,
   user_id INT NOT NULL
 );
 
