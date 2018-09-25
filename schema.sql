@@ -15,20 +15,20 @@ CREATE TABLE task (
   name CHAR(100) NOT NULL,
   date_created DATE NOT NULL,
   date_completed DATE NOT NULL,
-  date_deadline DATE DEFAULT 0,
+  date_deadline DATE DEFAULT NULL,
   status INT DEFAULT 0,
-  file CHAR(100) DEFAULT 0,
-  project_id INT DEFAULT 0,
+  file CHAR(100) DEFAULT NULL,
+  project_id INT DEFAULT NULL,
   user_id INT NOT NULL
 );
 
 CREATE TABLE user (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  reg_date DATE DEFAULT 0,
+  reg_date DATE DEFAULT NULL,
   email CHAR (50) NOT NULL,
   name CHAR (50) NOT NULL,
   password CHAR (50) NOT NULL,
-  contacts CHAR (200) DEFAULT 0
+  contacts CHAR (200) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX user_name ON user(name);
