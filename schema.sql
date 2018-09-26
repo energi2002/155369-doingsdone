@@ -1,8 +1,8 @@
-CREATE DATABASE 155369-doingsdone
+CREATE DATABASE '155369-doingsdone'
 DEFAULT CHARACTER SET utf8
 DEFAULT COLLATE utf8_general_ci;
 
-USE 155369-doingsdone;
+USE '155369-doingsdone';
 
 CREATE TABLE project (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -13,9 +13,8 @@ CREATE TABLE project (
 CREATE TABLE task (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   name CHAR(100) NOT NULL,
-  date_created DATE NOT NULL,
-  date_completed DATE NOT NULL,
-  date_deadline DATE DEFAULT NULL,
+  date_created DATETIME NOT NULL,
+  date_deadline DATETIME DEFAULT NULL,
   status INT DEFAULT 0,
   file CHAR(100) DEFAULT NULL,
   project_id INT DEFAULT NULL,
@@ -24,7 +23,7 @@ CREATE TABLE task (
 
 CREATE TABLE user (
   id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  reg_date DATE DEFAULT NULL,
+  reg_date DATETIME NOT NULL,
   email CHAR (50) NOT NULL,
   name CHAR (50) NOT NULL,
   password CHAR (50) NOT NULL,
