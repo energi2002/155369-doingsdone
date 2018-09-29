@@ -6,7 +6,8 @@ VALUES
       ('Учеба', 1),
       ('Работа', 1),
       ('Домашние дела', 2),
-      ('Авто', 2);
+      ('Авто', 2),
+      ('Игры', 3);
 
 INSERT INTO task (name, date_created, date_deadline, status, project_id, user_id)
 VALUES
@@ -15,12 +16,14 @@ VALUES
       ('Сделать задание первого раздела', NOW(), '2018-12-21 00:00', 1, 2, 1),
       ('Встреча с другом', NOW(), '2018-12-22 00:00', 0, 1, 1),
       ('Купить корм для кота', '2018-09-02 12:00', NULL, 0, 4, 2),
-      ('Заказать пиццу', '2018-09-03 12:00', NULL, 0, 4, 2);
+      ('Заказать пиццу', '2018-09-03 12:00', NULL, 0, 4, 2),
+      ('Заказать Red Dead Redemption II', '2018-09-29 16:00', '2018-10-20 00:00', 0, 6, 3);
 
 INSERT INTO user (reg_date, email, name, password)
 VALUES
       ('2019-09-01 12:00', 'konstantin.m@yandex.ru', 'Константин', 'konstan_TIN_2018'),
-      ('2019-09-02 12:00', 'super-mary@mail.ru', 'Мария', 'supersecret123');
+      ('2019-09-02 12:00', 'super-mary@mail.ru', 'Мария', 'supersecret123'),
+      ('2019-09-29 15:39', 'test@mail.ru', 'Надя', 'IdontKnow');
 
 
 /* получить список из всех проектов для одного пользователя */
@@ -37,3 +40,5 @@ SELECT * FROM task WHERE DATEDIFF(date_deadline, CURDATE()) = 1;
 
 /* обновить название задачи по её идентификатору */
 UPDATE task SET name='Заказать бургеры' WHERE id = 6;
+
+
