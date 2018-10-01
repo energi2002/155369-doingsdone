@@ -53,5 +53,14 @@ function getImportantTaskClass($task) {
     }
 }
 
+//функция смены формата даты
+function changeDateFormat($oldFormat) {
+   if ($oldFormat === "Y-m-d H:i:s") {
+        return '';
+    } else {
+        $showNewFormat = date_create($oldFormat);
+    }
+        return date_format($showNewFormat, "d.m.Y");
+}
 
 ?>

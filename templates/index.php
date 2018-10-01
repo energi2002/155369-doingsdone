@@ -41,7 +41,7 @@
                         <td class="task__file">
                             <a class="download-link" href="#">Home.psd</a>
                         </td>
-                        <td class="task__date"><?=$task['date_deadline']; ?></td>
+                        <td class="task__date"><?=changeDateFormat($task['date_deadline']); ?></td>
                     </tr>
                     <?php endif; ?>
                     <?php endforeach; ?>

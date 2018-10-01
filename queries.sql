@@ -40,3 +40,6 @@ SELECT * FROM task WHERE DATEDIFF(date_deadline, CURDATE()) = 1;
 
 /* обновить название задачи по её идентификатору */
 UPDATE task SET name='Заказать бургеры' WHERE id = 6;
+
+UPDATE task SET name='Заказать бургеры из Burger King' WHERE id = 6;
+
