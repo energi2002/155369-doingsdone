@@ -35,13 +35,13 @@
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1"
                                        <?php if ($task['completed']): ?>checked<?php endif; ?>>
-                                <span class="checkbox__text"><?=esc($task['title']); ?></span>
+                                <span class="checkbox__text"><?=esc($task['name']); ?></span>
                             </label>
                         </td>
                         <td class="task__file">
                             <a class="download-link" href="#">Home.psd</a>
                         </td>
-                        <td class="task__date"><?=$task['date']; ?></td>
+                        <td class="task__date"><?=$task['date_deadline']; ?></td>
                     </tr>
                     <?php endif; ?>
                     <?php endforeach; ?>
