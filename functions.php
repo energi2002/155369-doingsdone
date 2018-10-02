@@ -46,7 +46,7 @@ function getImportantTaskClass($task) {
     $deadline_ts = strtotime($task['date_deadline']);
     $days_until_deadline = floor(($deadline_ts - $cur_day_ts) / 86400);
 
-    if ($days_until_deadline === 0 || (!$task['status'] && $days_until_deadline < 0)) {
+    if ($days_until_deadline === 0 || (!$task['completed'] && $days_until_deadline < 0)) {
 		return "task--important";
     } else {
          return '';
@@ -62,5 +62,6 @@ function changeDateFormat($oldFormat) {
     }
         return date_format($showNewFormat, "d.m.Y");
 }
+
 
 ?>

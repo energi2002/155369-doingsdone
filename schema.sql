@@ -30,7 +30,6 @@ CREATE TABLE user (
   contacts CHAR (200) DEFAULT NULL
 );
 
-CREATE UNIQUE INDEX user_name ON user(name);
 CREATE UNIQUE INDEX user_email ON user(email);
 CREATE INDEX project ON project(name, user_id);
 CREATE INDEX task ON task(name, user_id);
