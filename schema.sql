@@ -15,7 +15,7 @@ CREATE TABLE task (
   name CHAR(100) NOT NULL,
   date_created DATETIME NOT NULL,
   date_deadline DATETIME DEFAULT NULL,
-  status INT DEFAULT 0,
+  completed INT DEFAULT 0,
   file CHAR(100) DEFAULT NULL,
   project_id INT DEFAULT NULL,
   user_id INT NOT NULL
@@ -30,7 +30,6 @@ CREATE TABLE user (
   contacts CHAR (200) DEFAULT NULL
 );
 
-CREATE UNIQUE INDEX user_name ON user(name);
 CREATE UNIQUE INDEX user_email ON user(email);
 CREATE INDEX project ON project(name, user_id);
 CREATE INDEX task ON task(name, user_id);

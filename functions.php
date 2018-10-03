@@ -22,7 +22,7 @@ return $result;
 function countTasks($task_list, $project) {
      $amount = 0;
      foreach($task_list as $task) {
-          if ($task['category'] === $project) {
+          if ($task['project_id'] === $project) {
                $amount++;
            }
       }
@@ -37,14 +37,13 @@ function esc($str) {
 }
 
 // функция проверки кол-ва дней до истечения срока задачи
-function getImportantTaskClass($task)
-{
-    if ($task["date"] === null) {
+function getImportantTaskClass($task) {
+    if ($task['date_deadline'] === null) {
         return '';
     }
 
     $cur_day_ts = time();
-    $deadline_ts = strtotime($task["date"]);
+    $deadline_ts = strtotime($task['date_deadline']);
     $days_until_deadline = floor(($deadline_ts - $cur_day_ts) / 86400);
 
     if ($days_until_deadline === 0 || (!$task['completed'] && $days_until_deadline < 0)) {
@@ -53,4 +52,16 @@ function getImportantTaskClass($task)
          return '';
     }
 }
+
+//функция смены формата даты
+function changeDateFormat($oldFormat) {
+   if ($oldFormat === "Y-m-d H:i:s") {
+        return '';
+    } else {
+        $showNewFormat = date_create($oldFormat);
+    }
+        return date_format($showNewFormat, "d.m.Y");
+}
+
+
 ?>
