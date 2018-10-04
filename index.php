@@ -31,6 +31,24 @@ if ($link === false) {
         $task_list = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
+if (isset($_GET['id'])) {
+    $active_project = $_GET['id'];
+
+    $sql = 'SELECT * FROM task WHERE project_id= ' . $active_project;
+    $result = mysqli_query($link, $sql);
+
+    if ($result !== false) {
+        $task_list = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+    //вот я только не поняла, правильно ли записала условие с ошибкой 404?
+    if (empty($active_project) || $active_project <= 0) {
+        header("HTTP/1.1 404 Not Found");
+        exit("Такого проекта не существует");
+    }
+}
+
+
 // подключение контента главной страницы
 $page_content = include_template (
         'index.php',
